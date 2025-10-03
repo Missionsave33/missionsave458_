@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mission_Save</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+    body {
+      font-family: "Kanit", sans-serif;
+      background-color: #e3f2fd;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: #ffffffdd;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      padding: 50px 40px;
+      max-width: 700px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: #1565c0;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      padding: 14px 20px;
+      font-size: 1.1rem;
+      background-color: #64b5f6;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: background-color 0.3s, transform 0.2s;
+      margin: 12px 0;
+    }
+
+    .button:hover {
+      background-color: #42a5f5;
+      transform: scale(1.03);
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 30px 20px;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .button {
+        font-size: 1rem;
+        padding: 12px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>เลือกวิธีการออมเงินของคุณ 🌈</h2>
+
+    <button class="button" onclick="location.href='your.html'">
+      💰 ฝากด้วยตนเอง
+    </button>
+
+    <button class="button" onclick="location.href='bank.html'">
+      🏦 ฝากในธนาคาร
+    </button>
+  </div>
+</body>
+</html>

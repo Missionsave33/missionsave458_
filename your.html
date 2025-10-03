@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>คำนวณเงินออม</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+    body {
+      font-family: "Kanit", sans-serif;
+      background-color: #e3f2fd;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background-color: #ffffffdd;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #1565c0;
+      margin-bottom: 25px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 20px;
+      display: block;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: 1px solid #90caf9;
+      border-radius: 8px;
+      background-color: #f0f8ff;
+      box-sizing: border-box;
+      font-size: 1rem;
+    }
+
+    button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 10px;
+      background-color: #64b5f6;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #42a5f5;
+    }
+
+    pre {
+      background-color: #bbdefb;
+      padding: 15px;
+      border-radius: 8px;
+      white-space: pre-wrap;
+      margin-top: 15px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>ออมแบบมีเป้าหมาย</h1>
+
+    <label for="goalName">ชื่อเป้าหมาย</label>
+    <input type="text" id="goalName" placeholder="เช่น เงินซื้อรถ" />
+    
+    <label for="goalTotal">จำนวนเงินที่ต้องการเก็บทั้งหมด (บาท)</label>
+    <input type="number" id="goalTotal" min="0" />
+    
+    <label for="goalDays">ระยะเวลาที่ต้องการเก็บ (วัน)</label>
+    <input type="number" id="goalDays" min="1" />
+
+    <button onclick="calculateGoal()">คำนวณยอดที่ควรเก็บต่อวัน</button>
+    <pre id="goalResult"></pre>
+  </div>
+
+  <script>
+    function calculateGoal() {
+      const name = document.getElementById("goalName").value.trim();
+      const total = parseFloat(document.getElementById("goalTotal").value);
+      const days = parseInt(document.getElementById("goalDays").value);
+      const goalResult = document.getElementById("goalResult");
+
+      if (!name) return alert("กรุณากรอกชื่อเป้าหมาย");
+      if (!total || total <= 0) return alert("กรุณากรอกจำนวนเงินให้ถูกต้อง");
+      if (!days || days <= 0) return alert("กรุณากรอกจำนวนวันที่ถูกต้อง");
+
+      const daily = Math.ceil(total / days);
+      goalResult.textContent = `🎯 เป้าหมาย "${name}"\n📆 ระยะเวลา ${days} วัน\n💰 ควรเก็บวันละ ${daily.toLocaleString()} บาท`;
+    }
+  </script>
+
+</body>
+</html>
